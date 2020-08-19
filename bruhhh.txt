@@ -1,0 +1,318 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local thing2 = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local thing1 = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+local rings = Instance.new("TextButton")
+local offall = Instance.new("TextButton")
+local speed = Instance.new("TextButton")
+local title = Instance.new("TextLabel")
+local page = Instance.new("TextButton")
+local rebirth = Instance.new("TextButton")
+local equipped = Instance.new("TextButton")
+local storage = Instance.new("TextButton")
+local eggbox = Instance.new("TextBox")
+local eggbutton = Instance.new("TextButton")
+local page_2 = Instance.new("TextButton")
+local title_2 = Instance.new("TextLabel")
+local title_3 = Instance.new("TextLabel")
+wait()
+game.StarterGui:SetCore("SendNotification", {
+Title = "Speed Run Simulator GUI"; -- the title (ofc)
+Text = "Thanks for using my GUI!"; -- what the text says (ofc)
+Duration = 5; -- how long the notification should in secounds
+})
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Main.Position = UDim2.new(0.237213418, 0, 0.363520414, 0)
+Main.Size = UDim2.new(0, 554, 0, 349)
+Main.ZIndex = 2
+Main.Active = true
+Main.Draggable = true
+
+thing2.Name = "thing2"
+thing2.Parent = Main
+thing2.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+thing2.Position = UDim2.new(0, 0, 0.888252139, 0)
+thing2.Size = UDim2.new(0, 554, 0, 39)
+
+TextLabel.Parent = thing2
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Size = UDim2.new(0, 554, 0, 39)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "Most scripts aren't made by me. I simply put them into a simple GUI form."
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 17.000
+
+thing1.Name = "thing1"
+thing1.Parent = Main
+thing1.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+thing1.Size = UDim2.new(0, 554, 0, 39)
+
+TextLabel_2.Parent = thing1
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Size = UDim2.new(0, 554, 0, 39)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = "GUI made by DankMemeLord#6000"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 25.000
+
+rings.Name = "rings"
+rings.Parent = Main
+rings.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+rings.Position = UDim2.new(0.023465693, 0, 0.704871058, 0)
+rings.Size = UDim2.new(0, 200, 0, 50)
+rings.Font = Enum.Font.Cartoon
+rings.Text = "auto orbs and rings"
+rings.TextColor3 = Color3.fromRGB(255, 255, 255)
+rings.TextSize = 21.000
+rings.MouseButton1Down:Connect(function()
+	_G.AutoCollect = true
+while _G.AutoCollect == true do
+   wait()
+for i,v in pairs(game:GetService("Workspace").OrbSpawns:GetChildren()) do
+   if v.ClassName == "MeshPart" then
+       wait()
+       v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+   end
+end
+end
+end)
+
+offall.Name = "offall"
+offall.Parent = Main
+offall.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+offall.Position = UDim2.new(0.400721908, 0, 0.361031502, 0)
+offall.Size = UDim2.new(0, 109, 0, 30)
+offall.Font = Enum.Font.Cartoon
+offall.Text = "turn off all"
+offall.TextColor3 = Color3.fromRGB(255, 255, 255)
+offall.TextSize = 21.000
+offall.MouseButton1Down:Connect(function()
+	_G.AutoSpeed = false
+	_G.AutoRebirth = false
+	_G.AutoCollect = false
+end)
+
+speed.Name = "speed"
+speed.Parent = Main
+speed.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+speed.Position = UDim2.new(0.617328465, 0, 0.518624663, 0)
+speed.Size = UDim2.new(0, 200, 0, 50)
+speed.Font = Enum.Font.Cartoon
+speed.Text = "auto speed"
+speed.TextColor3 = Color3.fromRGB(255, 255, 255)
+speed.TextSize = 21.000
+speed.MouseButton1Down:Connect(function()
+	_G.AutoSpeed = true
+while _G.AutoSpeed == true do
+   wait()
+game:GetService("ReplicatedStorage").Remotes.AddSpeed:FireServer()
+end
+end)
+
+title.Name = "title"
+title.Parent = Main
+title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1.000
+title.Position = UDim2.new(0, 0, 0.111747853, 0)
+title.Size = UDim2.new(0, 554, 0, 77)
+title.Font = Enum.Font.Cartoon
+title.Text = "Speed Run Simulator"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 65.000
+title.TextWrapped = true
+
+page.Name = "page"
+page.Parent = Main
+page.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+page.Position = UDim2.new(0.615523458, 0, 0.704871058, 0)
+page.Size = UDim2.new(0, 200, 0, 50)
+page.Font = Enum.Font.Cartoon
+page.Text = "page 2 ------ >"
+page.TextColor3 = Color3.fromRGB(255, 255, 255)
+page.TextSize = 21.000
+page.MouseButton1Down:Connect(function()
+	equipped.Visible = false
+	offall.Visible = false
+	rebirth.Visible = false
+	rings.Visible = false
+	speed.Visible = false
+	storage.Visible = false
+	page.Visible = false
+	eggbox.Visible = true
+	eggbutton.Visible = true
+	title_3.Visible = true
+	page_2.Visible = true
+end)
+
+rebirth.Name = "rebirth"
+rebirth.Parent = Main
+rebirth.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+rebirth.Position = UDim2.new(0.617328465, 0, 0.332378238, 0)
+rebirth.Size = UDim2.new(0, 200, 0, 50)
+rebirth.Font = Enum.Font.Cartoon
+rebirth.Text = "auto rebirth"
+rebirth.TextColor3 = Color3.fromRGB(255, 255, 255)
+rebirth.TextSize = 21.000
+rebirth.MouseButton1Down:Connect(function()
+	_G.AutoRebirth = true
+ while _G.AutoRebirth == true do
+ wait()
+ game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
+		
+	end
+end)
+
+equipped.Name = "equipped"
+equipped.Parent = Main
+equipped.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+equipped.Position = UDim2.new(0.0234657042, 0, 0.332378238, 0)
+equipped.Size = UDim2.new(0, 200, 0, 50)
+equipped.Font = Enum.Font.Cartoon
+equipped.Text = "inf pets equipped"
+equipped.TextColor3 = Color3.fromRGB(255, 255, 255)
+equipped.TextSize = 21.000
+equipped.MouseButton1Down:Connect(function()
+	game:GetService("Players").LocalPlayer.PetSlot.Value = 9e18
+
+end)
+
+storage.Name = "storage"
+storage.Parent = Main
+storage.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+storage.Position = UDim2.new(0.0234657042, 0, 0.518624663, 0)
+storage.Size = UDim2.new(0, 200, 0, 50)
+storage.Font = Enum.Font.Cartoon
+storage.Text = "inf pet storage"
+storage.TextColor3 = Color3.fromRGB(255, 255, 255)
+storage.TextSize = 21.000
+storage.MouseButton1Down:Connect(function()
+	game:GetService("Players").LocalPlayer.InvSpace.Value = 9e18
+
+end)
+
+eggbox.Name = "eggbox"
+eggbox.Parent = Main
+eggbox.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+eggbox.Position = UDim2.new(0.319494575, 0, 0.587392569, 0)
+eggbox.Size = UDim2.new(0, 200, 0, 31)
+eggbox.TextEditable = true
+eggbox.Visible = false
+eggbox.Font = Enum.Font.Cartoon
+eggbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+eggbox.TextScaled = true
+eggbox.TextSize = 14.000
+eggbox.TextWrapped = true
+
+
+eggbutton.Name = "eggbutton"
+eggbutton.Parent = Main
+eggbutton.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+eggbutton.Position = UDim2.new(0.319494575, 0, 0.716332376, 0)
+eggbutton.Size = UDim2.new(0, 200, 0, 30)
+eggbutton.Visible = false
+eggbutton.Font = Enum.Font.Cartoon
+eggbutton.Text = "Open Egg (Instantly)"
+eggbutton.TextColor3 = Color3.fromRGB(255, 255, 255)
+eggbutton.TextSize = 18.000
+eggbutton.TextWrapped = true
+eggbutton.MouseButton1Down:Connect(function()
+	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(eggbox.Text)
+end)
+
+page_2.Name = "page"
+page_2.Parent = Main
+page_2.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+page_2.Position = UDim2.new(0.0230000075, 0, 0.756575882, 0)
+page_2.Size = UDim2.new(0, 128, 0, 32)
+page_2.Visible = false
+page_2.Font = Enum.Font.Cartoon
+page_2.Text = "< ----- page 1"
+page_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+page_2.TextSize = 21.000
+page_2.MouseButton1Down:Connect(function()
+	equipped.Visible = true
+	offall.Visible = true
+	rebirth.Visible = true
+	rings.Visible = true
+	speed.Visible = true
+	storage.Visible = true
+	page.Visible = true
+	eggbox.Visible = false
+	eggbutton.Visible = false
+	title_3.Visible = false
+	page_2.Visible = false
+end)
+
+title_2.Name = "title"
+title_2.Parent = Main
+title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title_2.BackgroundTransparency = 1.000
+title_2.Position = UDim2.new(0, 0, 0.111747853, 0)
+title_2.Size = UDim2.new(0, 554, 0, 77)
+title_2.Font = Enum.Font.Cartoon
+title_2.Text = "Speed Run Simulator"
+title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+title_2.TextSize = 65.000
+title_2.TextWrapped = true
+
+title_3.Name = "title"
+title_3.Parent = Main
+title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title_3.BackgroundTransparency = 1.000
+title_3.Position = UDim2.new(0, 0, 0.315186262, 0)
+title_3.Size = UDim2.new(0, 554, 0, 77)
+title_3.Visible = false
+title_3.Font = Enum.Font.Cartoon
+title_3.Text = "Allows you to open any egg, even if it is unreleased. No animation, pet immediately appears in your inventory. You can use dex to find the egg types. Example : EggEleven"
+title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+title_3.TextScaled = true
+title_3.TextSize = 65.000
+title_3.TextWrapped = true
+
+-- Scripts:
+
+local function QWDYBI_fake_script() -- Main.keybindthing 
+	local script = Instance.new('LocalScript', Main)
+
+	local frame = script.Parent
+	local hotkey = Enum.KeyCode.E
+	
+	local UIS = game:GetService("UserInputService")
+	local open = true
+	
+	
+	
+	UIS.InputBegan:Connect(function(key, gp)
+	 if key.KeyCode == hotkey then
+	  if UIS:GetFocusedTextBox() == nil then
+	   if open == true then
+	    open = false 
+	    frame.Visible = open
+	   elseif open == false then
+	    open = true
+	    frame.Visible = open
+	   end
+	  end
+	 end
+	end)
+	
+	
+end
+coroutine.wrap(QWDYBI_fake_script)()
